@@ -1,12 +1,58 @@
 <html>
-  <head>
-    <title>Adivina el Numero</title>
-    <meta charset="UTF-8">
-  </head>
-  <body>
+
+<head>
+    <title>My Game</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <style>
+        div {
+            padding: none;
+            margin: 10%;
+        }
+    </style>
+    <script>
+        var number;
+
+        function generateNumber() {
+            number = Math.floor(Math.random() * 100);
+            console.log(number);
+        }
+
+        function incPuntos() {
+            var puntos = parseInt(document.getElementById('puntos').innerHTML);
+            puntos++;
+            document.getElementById('puntos').innerHTML = puntos;
+        }
+
+        function checkNumber(n) {
+            if (n == number) {
+                alert("Acertaste!");
+                incPuntos();
+                generateNumber();
+            } else {
+                alert("Te equivocaste, vuelve a intentarlo!");
+            }
+        }
+    </script>
+</head>
+
+<body>
     <div>
-      <div>
-      </div>
+        <div>
+            <h1>Adivina el numero:</h1>
+            <hr>
+            <p>Reglas:</p>
+            <ol>
+                <li>El numero esta entre 0 y 100, incluyendo los extremos.</li>
+            </ol>
+            <hr>
+            <h3><b>Puntos:</b> <i id="puntos">0</i></h3>
+            <input type="number" name="numer_type" id="nt" min="0" max="100" value="0">
+            <button onclick="checkNumber(document.getElementById('nt').value)">Aceptar</button>
+        </div>
     </div>
-  </body>
+    <script>
+        generateNumber();
+    </script>
+</body>
+
 </html>

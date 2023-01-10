@@ -25,6 +25,7 @@
 
         function checkNumber(n) {
             if (n == number) {
+                document.getElementById("sound").play();
                 alert("Acertaste!");
                 incPuntos();
                 generateNumber();
@@ -48,6 +49,7 @@
             <h3><b>Puntos:</b> <i id="puntos">0</i></h3>
             <input type="number" name="numer_type" id="nt" min="0" max="100" value="0">
             <button onclick="checkNumber(document.getElementById('nt').value)">Aceptar</button>
+            <audio src="http://www.sonidosmp3gratis.com/sounds/iphone-notificacion.mp3" id="sound"></audio>
         </div>
     </div>
     <script>

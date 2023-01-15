@@ -1,6 +1,7 @@
 import random
 from os import system
 import time
+from pygame import mixer
 
 def generateRandom():
     
@@ -27,6 +28,9 @@ def play():
         
         if num == num_input:
             total_puntos = total_puntos + 1
+            mixer.init()
+            mixer.music.load('http://www.sonidosmp3gratis.com/sounds/iphone-notificacion.mp3')
+            mixer.music.play()
             print("Acertaste en el número, sumas un punto, total de puntos: " + str(total_puntos))
             fails = 0
             num = generateRandom()
